@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Profile from './pages/Profile.jsx';
 import Home from './pages/Home.jsx';
 import './index.css'
 import {
@@ -8,6 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import NotFoundPage from './pages/NotFoundPage.jsx';
+import SignUp from './pages/SignUp.jsx';
+import SignIn from './pages/SignIn.jsx';
 
 
 
@@ -18,8 +19,13 @@ const router = createBrowserRouter([
     errorElement: <NotFoundPage/>
   },
   {
-    path:'/profile',
-    element: <Profile/>,
+    path:'/signUp',
+    element: <SignUp/>,
+    errorElement:<NotFoundPage/>
+  },
+  {
+    path:'signIn',
+    element:<SignIn/>,
     errorElement:<NotFoundPage/>
   }
 ])
