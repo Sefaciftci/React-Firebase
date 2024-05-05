@@ -32,13 +32,17 @@ const SignUp = () => {
 
   
   return (
-    <div className='text-center mt-10'>
-      <h1 className='text-3xl mb-8 font-mono font-semibold text-green-600'>Create New Acoount</h1>
+
+    <div className="min-h-screen bg-purple-100">
+
+    
+    <div className='flex items-center flex-col font-mono pt-20 '>
+      <h1 className='text-4xl mb-5 text-purple-900 font-semibold'>Create New Acoount</h1>
       <form 
       onSubmit={handleSubmit}
-      className='flex flex-col items-center gap-5 mb-10'>
+      className='flex flex-col gap-4 mt-10'>
         <input 
-        className='py-3 px-5 border-2 border-gray rounded-2xl' 
+        className='py-2 px-5 border-gray border-2 border-purple-100 rounded-xl text-lg focus:outline-none' 
         type='text' 
         placeholder='Enter your name'
         value={name}
@@ -46,7 +50,7 @@ const SignUp = () => {
         /> 
 
         <input 
-        className='py-3 px-5 border-2 border-gray rounded-2xl' 
+        className='py-2 px-5 border-gray border-2 border-purple-100 rounded-xl text-lg focus:outline-none' 
         type='email' 
         placeholder='e-mail'
         value={email}
@@ -54,17 +58,19 @@ const SignUp = () => {
         /> 
 
         <input 
-        className='py-3 px-5 border-2 border-gray rounded-2xl' 
+        className='py-2 px-5 border-gray border-2 border-purple-100 rounded-xl text-lg focus:outline-none' 
         type='password' 
         placeholder='password'
         value={password}
         onChange={(e)=> setPassword(e.currentTarget.value)}/>
         <input 
-        className='py-3 px-5 border-2 border-gray rounded-2xl text-gray-400 hover:bg-green-600 hover:text-white transition-all duration-500 cursor-pointer' 
+        className='py-3 px-5 mt-4 border-2 border-purple-300 text-purple-900 font-semibold rounded-2xl hover:bg-purple-600 hover:text-white transition-all duration-500 cursor-pointer'
         type='submit'
-        value='Sign Up'/>
+        value='Sign up'/>
       </form>
-      <Link to={'/signIn'}>Do you already have an acoount? <span className='bg-red-600 text-white p-1.5 rounded-lg'>Sign In</span></Link>
+      <Link className="font-semibold text-purple-900 mt-14" to={'/signIn'}>Do you have  already an acoount? <span className='bg-purple-600 text-white p-2 rounded-xl ml-2'>Sign in</span></Link>
+
+    </div>
 
     </div>
   )

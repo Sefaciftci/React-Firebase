@@ -26,7 +26,7 @@ const SignIn = () => {
     <div className='min-h-screen bg-purple-100 '>
       
       <div className='flex items-center flex-col font-mono pt-20 '>
-        <h1 className=' text-4xl mb-5 text-purple-900 font-semibold'>Sign in</h1> 
+        <h1 className='text-4xl mb-5 text-purple-900 font-semibold'>Sign in</h1> 
 
         <div>
           <form onSubmit={handleSubmit} className='flex flex-col gap-4 mt-10'>
