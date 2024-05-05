@@ -18,8 +18,9 @@ const Home = () => {
 
 
   return (
-    <div className="text-center text-4xl">
+    <div >
       <div className="min-h-screen bg-purple-100">
+
         <div className="mx-32 py-6">
 
           <nav className="flex justify-between items-center color-purple-500">
@@ -54,9 +55,7 @@ const Home = () => {
           </nav>
 
 
-
-
-          <div className="pt-32 flex flex-row ">
+          <div className="pt-32 flex flex-row px-5">
 
             <div className="flex flex-col justify-center text-left basis-1/2">
               <h3 className="text-4xl font-semibold mb-6 font-mono w-1/2">
@@ -78,7 +77,7 @@ const Home = () => {
 
             <div className="basis-1/2">
 
-              <div className="flex justify-center">
+              <div className="flex justify-center items-center">
                 <img
                   src={imgSrc}
                   alt="social media"
@@ -88,6 +87,8 @@ const Home = () => {
 
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
