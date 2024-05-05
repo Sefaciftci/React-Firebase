@@ -23,7 +23,7 @@ const SignIn = () => {
 
 
   return (
-    <div className='min-h-screen bg-purple-100 '>
+    <div className='min-h-screen bg-purple-100'>
       
       <div className='flex items-center flex-col font-mono pt-20 '>
         <h1 className='text-4xl mb-5 text-purple-900 font-semibold'>Sign in</h1> 
@@ -38,7 +38,7 @@ const SignIn = () => {
           onChange={(e)=> setEmail(e.currentTarget.value)}
           />
           <input
-          className='py-2 px-5 border-gray border-2 border-purple-100 rounded-xl text-lg focus:outline-none'
+          className='py-2 px-5 border-gray border-2 border-purple-100 rounded-xl text-lg focus:outline-none mb-3'
           type='password'
           placeholder='password'
           value={password}
