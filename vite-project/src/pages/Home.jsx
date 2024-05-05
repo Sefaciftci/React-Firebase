@@ -30,25 +30,25 @@ const Home = () => {
               DOPPY
             </h3>
             <ul className="flex gap-8 md:gap-20 text-lg md:text-xl text-purple-950 font-medium">
-              <li className="hover:border-purple-500 hover:text-purple-500  transition-all duration-500 cursor-pointer">
+              <li className="hover:border-purple-500 hover:text-purple-600  transition-all duration-500 cursor-pointer">
                 Home
               </li>
-              <li className="border-purple-500 hover:text-purple-500 transition-all duration-300 cursor-pointer">
+              <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
                 About
               </li>
-              <li className="border-purple-500 hover:text-purple-500 transition-all duration-300 cursor-pointer">
+              <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
                 Quiz
               </li>
             </ul>
 
             <div className="flex gap-2 md:gap-3">
               <button
-                className="text-xl md:text-xl font-bold text-purple-900 cursor-pointer   hover:text-purple-500  transition-all duration-500 "
+                className="text-xl md:text-xl font-bold text-purple-900 cursor-pointer   hover:text-purple-600  transition-all duration-500 "
               >
                 <span><FaUser /></span>
               </button>
               <button
-                className=" py-1 md:py-1.5 px-5 md:px-8 text-xl font-semibold border-2 text-purple-900 cursor-pointer border-purple-900 rounded-2xl hover:bg-purple-900 hover:text-white hover:border-white transition-all duration-500 "
+                className=" py-1 md:py-1.5 px-5 md:px-8 text-xl font-semibold border-2 text-purple-900 cursor-pointer border-purple-900 rounded-2xl hover:bg-purple-600 hover:text-white hover:border-white transition-all duration-500 "
                 onClick={handleSignOut}
               >
                 Sign Out
@@ -70,7 +70,7 @@ const Home = () => {
                 having to meet.
               </p>
 
-              <a className="text-center py-2 md:py-3 md:px-10 w-56 text-xl font-semibold border-2 rounded-2xl text-purple-900 cursor-pointer border-purple-900  hover:bg-purple-900 hover:text-white hover:border-white transition-all duration-500 ">
+              <a className="text-center py-2 md:py-3 md:px-10 w-56 text-xl font-semibold border-2 rounded-2xl text-purple-900 cursor-pointer border-purple-900  hover:bg-purple-600 hover:text-white hover:border-white transition-all duration-500 ">
                 get started
               </a>
             </div>
