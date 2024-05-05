@@ -9,25 +9,48 @@ import {
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import SignUp from './pages/SignUp.jsx';
 import SignIn from './pages/SignIn.jsx';
+import ForgatPassword from './pages/ForgatPassword.jsx';
+import MainLayout from './components/MainLayout.jsx';
+import AuthLayout from './components/AuthLayout.jsx';
 
 
 
 const router = createBrowserRouter([
   {
     path:'/',
-    element:<Home/>,
-    errorElement: <NotFoundPage/>
+    element:<MainLayout/>,
+    errorElement:<NotFoundPage/>,
+    children:[
+      {
+        path:'/',
+        element:<Home/>,
+        errorElement: <NotFoundPage/>
+      }
+    ]
   },
   {
-    path:'/signUp',
-    element: <SignUp/>,
-    errorElement:<NotFoundPage/>
-  },
-  {
-    path:'signIn',
-    element:<SignIn/>,
-    errorElement:<NotFoundPage/>
+    path:'/',
+    element:<AuthLayout/>,
+    errorElement:<NotFoundPage/>,
+    children:[
+      {
+        path:'/signUp',
+        element: <SignUp/>,
+        errorElement:<NotFoundPage/>
+      },
+      {
+        path:'signIn',
+        element:<SignIn/>,
+        errorElement:<NotFoundPage/>
+      },
+      {
+        path:'forgatPassword',
+        element:<ForgatPassword/>,
+        errorElement:<NotFoundPage/>
+      }
+    ]
   }
+  
 ])
 
 

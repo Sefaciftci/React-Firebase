@@ -17,7 +17,6 @@ const SignIn = () => {
     }
 
     signInWithEmailAndPassword(auth,email,password)
-    .then(()=> alert('Signed in'))
     .catch((e)=>console.log(e))
 
   }, [email,password])
@@ -41,9 +40,11 @@ const SignIn = () => {
           value={password}
           onChange={(e)=> setPassword(e.currentTarget.value)}
           />
+          <Link className='text-sm text-green-400' to='/forgatPassword'>Forgat Password?</Link>
           <input
           className='py-3 px-5 border-2 border-gray rounded-2xl text-gray-400 hover:bg-red-600 hover:text-white transition-all duration-500 cursor-pointer'
-          type="submit"/>
+          type="submit"
+          value='Sign In'/>
         </form>
         <Link className='mt-10' to={'/signUp'}>Don't you have an acoount? <span className='bg-green-600 text-white p-1.5 rounded-lg'>Sign Up</span></Link>
 
