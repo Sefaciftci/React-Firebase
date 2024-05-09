@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 
 const SignUp = () => {
 
+
+  //email, password ve name ile kullanıcı kaydetme
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [name,setName] = useState('');

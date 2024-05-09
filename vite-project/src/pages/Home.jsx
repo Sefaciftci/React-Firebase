@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import LoadingPage from "./LoadingPage";
 import imgSrc from '../img/home.png';
 import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -36,17 +37,24 @@ const Home = () => {
               <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
                 About
               </li>
-              <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
-                Quiz
-              </li>
+              <Link to='/quizApp'>
+                <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
+                  Quiz
+                </li>
+              </Link>
+              
             </ul>
 
-            <div className="flex gap-2 md:gap-3">
-              <button
-                className="text-xl md:text-xl font-bold text-purple-900 cursor-pointer   hover:text-purple-600  transition-all duration-500 "
-              >
-                <span><FaUser /></span>
-              </button>
+            <div className="flex gap-2 md:gap-3 items-center">
+
+              <Link to='/profile'>
+                <button
+                  className="text-xl md:text-xl font-bold text-purple-900 cursor-pointer   hover:text-purple-600  transition-all duration-500 "
+                >
+                  <FaUser />
+                </button>
+              </Link>
+
               <button
                 className=" py-1 md:py-1.5 px-5 md:px-8 text-xl font-semibold border-2 text-purple-900 cursor-pointer border-purple-900 rounded-2xl hover:bg-purple-600 hover:text-white hover:border-white transition-all duration-500 "
                 onClick={handleSignOut}
@@ -57,9 +65,9 @@ const Home = () => {
           </nav>
 
 
-          <div className="pt-14 md:pt-24 flex flex-col-reverse md:flex-row px-3 md:px-5">
+          <div className="pt-16 md:pt-24 flex flex-col-reverse md:flex-row px-3 md:px-5">
 
-            <div className="flex flex-col justify-center text-left md:basis-1/2">
+            <div className="flex flex-col justify-center text-left md:basis-1/2 mt-5">
               <h3 className="text-3xl md:text-4xl font-semibold mb-6 font-mono md:w-1/2">
                 easy ways to work with a team
               </h3>

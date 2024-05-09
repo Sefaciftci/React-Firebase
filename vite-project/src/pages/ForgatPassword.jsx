@@ -5,15 +5,14 @@ import {auth} from '../firebase'
 
 const ForgatPassword = () => {
 
-    const [email,setEmail] = useState('')
 
+  // password yenileme
+    const [email,setEmail] = useState('')
     const handleSubmit = useCallback((e)=> {
         e.preventDefault();
-
         if(!email){
             return;
         }
-
         sendPasswordResetEmail(auth,email).then(()=> {
             alert('We sent you e-mail for reset your password. Check your inbox')
         }).catch((e)=> {
@@ -21,6 +20,9 @@ const ForgatPassword = () => {
         })
 
     }, [email])
+
+
+
 
   return (
     <div className='min-h-screen bg-purple-100'>

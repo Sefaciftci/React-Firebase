@@ -12,6 +12,8 @@ import SignIn from './pages/SignIn.jsx';
 import ForgatPassword from './pages/ForgatPassword.jsx';
 import MainLayout from './components/MainLayout.jsx';
 import AuthLayout from './components/AuthLayout.jsx';
+import Profile from './pages/Profile/Profile.jsx';
+import QuizApp from './pages/QuizApp/QuizApp.jsx';
 
 
 
@@ -24,6 +26,16 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home/>,
+        errorElement: <NotFoundPage/>
+      },
+      {
+        path:'/profile',
+        element:<Profile/>,
+        errorElement: <NotFoundPage/>
+      },
+      {
+        path:'/quizApp',
+        element:<QuizApp/>,
         errorElement: <NotFoundPage/>
       }
     ]

@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 
 const SignIn = () => {
 
+
+  // email ve password ile kullanıcı girişi 
   const [email, setEmail] = useState('')
   const [password , setPassword] = useState('')
 
