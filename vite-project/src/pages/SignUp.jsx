@@ -5,8 +5,6 @@ import {auth} from '../firebase'
 import {Link} from 'react-router-dom'
 
 const SignUp = () => {
-
-
   //email, password ve name ile kullanıcı kaydetme
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
@@ -14,12 +12,10 @@ const SignUp = () => {
 
   const handleSubmit = useCallback((e)=> {
     e.preventDefault();
-
     if(!email || !password) {
       alert('email ve password boş kalamaz.')
       return;
     }
-
    createUserWithEmailAndPassword(auth , email, password).then((auth)=>{
     updateProfile(auth.user , {displayName:name});
    })
@@ -27,7 +23,6 @@ const SignUp = () => {
     console.log(e);
   })
 
-    
   } , [name,email,password])
 
 

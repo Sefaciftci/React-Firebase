@@ -24,7 +24,7 @@ const Home = () => {
     <div >
       <div className="min-h-screen bg-purple-100">
 
-        <div className="px-8 md:mx-32 py-3 md:py-6">
+        <div className="px-8 md:mx-32 py-5 md:py-8">
 
           <nav className="flex justify-between items-center color-purple-500">
             <h3 className="text-3xl md:text-5xl color-purple font-cursive tracking-wide	font-semibold">
@@ -65,7 +65,7 @@ const Home = () => {
           </nav>
 
 
-          <div className="pt-16 md:pt-24 flex flex-col-reverse md:flex-row px-3 md:px-5">
+          <div className="pt-16 md:pt-24 lg:pt-28 flex flex-col-reverse md:flex-row px-3 md:px-5">
 
             <div className="flex flex-col justify-center text-left md:basis-1/2 mt-5">
               <h3 className="text-3xl md:text-4xl font-semibold mb-6 font-mono md:w-1/2">
@@ -91,7 +91,7 @@ const Home = () => {
                 <img
                   src={imgSrc}
                   alt="social media"
-                  className="w-96 h-96 md:w-128 md:h-128  object-cover border-none"
+                  className="w-96 h-96 md:w-[520px] md:h-[520px]  object-cover border-none"
                 />
               </div>
 

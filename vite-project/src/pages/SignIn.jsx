@@ -4,8 +4,6 @@ import {signInWithEmailAndPassword} from 'firebase/auth'
 import {Link} from "react-router-dom";
 
 const SignIn = () => {
-
-
   // email ve password ile kullanıcı girişi 
   const [email, setEmail] = useState('')
   const [password , setPassword] = useState('')
@@ -30,7 +28,7 @@ const SignIn = () => {
       <div className='flex items-center flex-col font-mono pt-20 '>
         <h1 className='text-4xl mb-5 text-purple-900 font-semibold'>Sign in</h1> 
 
-        <div>
+        <div >
           <form onSubmit={handleSubmit} className='flex flex-col gap-4 mt-10'>
           <input 
           className='py-2 px-5 border-gray border-2 border-purple-100 rounded-xl text-lg focus:outline-none'
