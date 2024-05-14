@@ -1,41 +1,50 @@
-import React, { useState } from "react";
-import { questions } from "./data";
-import BeforeQuiz from "./BeforeQuiz";
-import AfterQuiz from "./AfterQuiz";
+import React, { useState } from 'react';
+import { questions } from './data';
+import BeforeQuiz from './BeforeQuiz';
+import AfterQuiz from './AfterQuiz';
+import { goals1 } from './goals1';
+import { goals2 } from './goals2';
 
 const Quiz = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [quizStarted, setQuizStarted] = useState(false);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [score, setScore] = useState(0);
+    const [quizStarted, setQuizStarted] = useState(false);
+    const [quizFinished, setQuizFinished] = useState(false);
 
-  const handleAnswerClick = (answerScore) => {
-    setScore(score + answerScore);
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      // Tüm sorular cevaplandı, quiz bitti
-      // İlgili bileşeni değiştir
-      setQuizStarted(false);
-    }
-  };
+    const handleAnswerClick = (answerScore) => {
+        setScore(score + answerScore);
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion);
+        } else {
+            setQuizFinished(true);
+        }
+    };
 
-  const handleStartQuiz = () => {
-    setQuizStarted(true);
-  };
+    const handleStartQuiz = () => {
+        setQuizStarted(true);
+        setQuizFinished(false);
+        setCurrentQuestion(0);
+        setScore(0);
+    };
 
-  return (
-    <div className="min-h-screen bg-purple-100 flex justify-center items-center ">
+    const goals = score < 2000 ? goals1 : goals2;
+
+    return (
+      <div className="min-h-screen bg-purple-100 flex justify-center items-center ">
       <div className="bg-white w-[640px] rounded-xl py-6 px-9 shadow-2xl">
         <h1 className="text-center text-3xl text-purple-500 font-semibold mb-2 ">
           Quiz
         </h1>
         <hr className="mb-10" />
-
-        {quizStarted ? (
-          <>
-            <div className="flex flex-col gap-3">
-              <p className="text-xl ">
+            {!quizStarted ? (
+                <BeforeQuiz onStartQuiz={handleStartQuiz} />
+            ) : quizFinished ? (
+                <AfterQuiz score={score} />
+            ) : (
+                <>
+                    <div className="flex flex-col gap-3">
+              <p className="text-xl">
                 {questions[currentQuestion].questionText}
               </p>
               <div className="flex flex-col gap-3 mt-4">
@@ -56,17 +65,42 @@ const Quiz = () => {
               <p className="text-gray mt-8 text-center">
                 {currentQuestion + 1} of {questions.length} questions
               </p>
-            </div>
-            {currentQuestion === questions.length -1 && (
-              <AfterQuiz score={score} />
+                    </div>
+                </>
             )}
-          </>
-        ) : (
-          <BeforeQuiz onStartQuiz={handleStartQuiz} />
-        )}
-      </div>
-    </div>
-  );
+            {quizFinished && <GoalList goals={goals} initialScore={score} />}
+        </div>
+        </div>
+    );
+};
+
+
+const GoalList = ({ goals, initialScore }) => {
+    const [goalList, setGoalList] = useState(goals);
+    const [score, setScore] = useState(initialScore);
+
+    const handleCompleteGoal = (id, goalScore) => {
+        setGoalList(goalList.map(goal => goal.id === id ? { ...goal, completed: true } : goal));
+        setScore(score - goalScore);
+    };
+
+    return (
+        <div>
+            <h2>Hedefler</h2>
+            <p>Kalan Puan: {score}</p>
+            <ul>
+                {goalList.map(goal => (
+                    <li key={goal.id} style={{ textDecoration: goal.completed ? 'line-through' : 'none' }}>
+                        {goal.goalText}
+                        <button onClick={() => handleCompleteGoal(goal.id, goal.goalScore)}>
+                            Tamamlandı
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default Quiz;
+
