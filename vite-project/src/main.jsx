@@ -15,6 +15,7 @@ import AuthLayout from './components/AuthLayout.jsx';
 import Profile from './pages/Profile/Profile.jsx';
 import QuizApp from './pages/QuizApp/QuizApp.jsx';
 import TicTac from './pages/TicTac/TicTac.jsx';
+import About from './pages/About/About.jsx';
 
 
 
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path:'/ticTac',
         element:<TicTac/>,
+        errorElement: <NotFoundPage/>
+      },
+      {
+        path:'/about',
+        element:<About/>,
         errorElement: <NotFoundPage/>
       }
     ]

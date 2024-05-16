@@ -33,11 +33,10 @@ const Profile = () => {
         </div>
 
           <div className='w-72 h-32 mt-10  px-3 py-6 bg-purple-400 rounded-2xl text-white text-center shadow-xl'>
-              <h1 className='text-2xl font-semibold mb-3'>Total Skor</h1>
-              <p className='font-bold text-xl'>1500</p>
+          <Link className='mt-3 bg-purple-500 text-white p-2 rounded-lg' to='/ticTac'>Zinciri Kırma</Link>
           </div>
           
-          <Link className='mt-3 bg-purple-500 text-white p-2 rounded-lg' to='/ticTac'>Zinciri Kırma</Link>
+          
 
           
       </div>

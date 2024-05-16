@@ -34,9 +34,12 @@ const Home = () => {
               <li className="hover:border-purple-500 hover:text-purple-600  transition-all duration-500 cursor-pointer">
                 Home
               </li>
-              <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
-                About
-              </li>
+              <Link to='/about'>
+                <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
+                  About
+                </li>
+              </Link>
+              
               <Link to='/quizApp'>
                 <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
                   Quiz
