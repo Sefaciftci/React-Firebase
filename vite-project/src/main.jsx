@@ -14,6 +14,7 @@ import MainLayout from './components/MainLayout.jsx';
 import AuthLayout from './components/AuthLayout.jsx';
 import Profile from './pages/Profile/Profile.jsx';
 import QuizApp from './pages/QuizApp/QuizApp.jsx';
+import TicTac from './pages/TicTac/TicTac.jsx';
 
 
 
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
       {
         path:'/quizApp',
         element:<QuizApp/>,
+        errorElement: <NotFoundPage/>
+      },
+      {
+        path:'/ticTac',
+        element:<TicTac/>,
         errorElement: <NotFoundPage/>
       }
     ]

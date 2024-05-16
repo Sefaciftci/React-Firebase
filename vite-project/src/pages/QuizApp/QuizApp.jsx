@@ -4,6 +4,9 @@ import BeforeQuiz from './BeforeQuiz';
 import AfterQuiz from './AfterQuiz';
 import { goals1 } from './goals1';
 import { goals2 } from './goals2';
+import { FaCircleCheck } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
+
 
 const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -36,7 +39,7 @@ const Quiz = () => {
         <h1 className="text-center text-3xl text-purple-500 font-semibold mb-2 ">
           Quiz
         </h1>
-        <hr className="mb-10" />
+        <hr className="mb-5" />
             {!quizStarted ? (
                 <BeforeQuiz onStartQuiz={handleStartQuiz} />
             ) : quizFinished ? (
@@ -75,6 +78,9 @@ const Quiz = () => {
 };
 
 
+
+
+
 const GoalList = ({ goals, initialScore }) => {
     const [goalList, setGoalList] = useState(goals);
     const [score, setScore] = useState(initialScore);
@@ -85,19 +91,19 @@ const GoalList = ({ goals, initialScore }) => {
     };
 
     return (
-        <div>
-            <h2>Hedefler</h2>
-            <p>Kalan Puan: {score}</p>
+        <div className='flex flex-col'>
+            <span className='text-end text-xl text-purple-800 font-semibold'>Kalan Puan: {score}</span>
             <ul>
                 {goalList.map(goal => (
-                    <li key={goal.id} style={{ textDecoration: goal.completed ? 'line-through' : 'none' }}>
+                    <li className='flex justify-between mt-4 border-2 border-purple-200 shadow-lg px-2 py-3 rounded-xl bg-purple-100 text-purple-900' key={goal.id} style={{ textDecoration: goal.completed ? 'line-through' : 'none' }}>
                         {goal.goalText}
                         <button onClick={() => handleCompleteGoal(goal.id, goal.goalScore)}>
-                            Tamamlandı
+                        <FaCircleCheck className='text-purple-600 text-xl' />
                         </button>
                     </li>
                 ))}
             </ul>
+
         </div>
     );
 };

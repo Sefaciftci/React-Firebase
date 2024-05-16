@@ -36,6 +36,10 @@ const Profile = () => {
               <h1 className='text-2xl font-semibold mb-3'>Total Skor</h1>
               <p className='font-bold text-xl'>1500</p>
           </div>
+          
+          <Link className='mt-3 bg-purple-500 text-white p-2 rounded-lg' to='/ticTac'>Zinciri Kırma</Link>
+
+          
       </div>
     </div>
   )
