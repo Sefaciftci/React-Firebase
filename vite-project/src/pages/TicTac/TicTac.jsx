@@ -46,13 +46,8 @@ const TicTac = () => {
 
   return (
     <div className="min-h-screen bg-purple-100 flex justify-center items-center font-mono">
-  
-      <Link to='/'>
-            <IoArrowBackCircle className='text-4xl text-purple-400 font-bold' />
-        </Link>
-      
-      <div className="App">
 
+      <div className="App">
           <h1 className="text-center text-4xl tracking-wide	 text-purple-500 font-semibold mb-10 ">
             Zinciri Kırma
           </h1>

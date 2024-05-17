@@ -27,10 +27,10 @@ const Home = () => {
         <div className="px-8 md:mx-32 py-5 md:py-8">
 
           <nav className="flex justify-between items-center color-purple-500">
-            <h3 className="text-3xl md:text-5xl color-purple font-cursive tracking-wide	font-semibold">
+            <h3 className="text-3xl md:text-5xl color-purple font-cursive tracking-wide	font-semibold text-purple-900">
               DOPPY
             </h3>
-            <ul className="flex gap-8 md:gap-20 text-lg md:text-xl text-purple-950 font-medium">
+            <ul className="flex gap-8 md:gap-20 text-lg md:text-xl text-purple-900 font-medium">
               <li className="hover:border-purple-500 hover:text-purple-600  transition-all duration-500 cursor-pointer">
                 Home
               </li>
@@ -59,7 +59,7 @@ const Home = () => {
               </Link>
 
               <button
-                className=" py-1 md:py-1.5 px-5 md:px-8 text-xl font-semibold border-2 text-purple-900 cursor-pointer border-purple-900 rounded-2xl hover:bg-purple-600 hover:text-white hover:border-white transition-all duration-500 "
+                className="py-1 md:py-1.5 px-5 md:px-8 text-xl font-semibold border-2 text-purple-900 cursor-pointer border-purple-900 rounded-2xl hover:bg-purple-600 hover:text-white hover:border-white transition-all duration-500 "
                 onClick={handleSignOut}
               >
                 Sign Out
@@ -70,20 +70,18 @@ const Home = () => {
 
           <div className="pt-16 md:pt-24 lg:pt-28 flex flex-col-reverse md:flex-row px-3 md:px-5">
 
-            <div className="flex flex-col justify-center text-left md:basis-1/2 mt-5">
-              <h3 className="text-3xl md:text-4xl font-semibold mb-6 font-mono md:w-1/2">
-                easy ways to work with a team
+            <div className="flex flex-col justify-center text-left md:basis-1/2 mt-5 text-purple-900">
+              <h3 className="text-3xl  md:text-4xl font-semibold mb-6 font-mono md:w-1/2">
+              sosyal medya molası, ruhun için yenilenme
               </h3>
               <p
-                className=" text-base md:text-lg font-light mb-6 md:mb-10">
-                this is my original illustration for the home page of kerjain.
-                this platform for a team to work on their work remotely without
-                having to meet.
+                className="text-base md:text-lg font-light mb-6 md:mb-10">
+                Doppy, sosyal medya kullanımınızı azaltarak, kendinize ve sevdiklerinize daha fazla zaman ayırmanızı hedefler. Dijital dünyadan bir adım geri atın ve yaşamın gerçek anlarının tadını çıkarın.
               </p>
 
-              <a className="text-center py-2 md:py-3 md:px-10 w-56 text-xl font-semibold border-2 rounded-2xl text-purple-900 cursor-pointer border-purple-900  hover:bg-purple-600 hover:text-white hover:border-white transition-all duration-500 ">
-                get started
-              </a>
+              <Link className="text-center py-2 md:py-3 md:px-10 w-56 text-xl font-semibold border-2 rounded-2xl text-purple-900 cursor-pointer border-purple-900  hover:bg-purple-600 hover:text-white hover:border-white transition-all duration-500 " to='/about'>
+                başla!
+              </Link>
             </div>
 
 
