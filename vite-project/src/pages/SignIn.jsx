@@ -23,9 +23,10 @@ const SignIn = () => {
 
 
   return (
-    <div className='min-h-screen bg-purple-100'>
+    <div className="min-h-screen bg-purple-100 flex justify-center items-center ">
+    <div className="bg-white w-[500px] rounded-xl shadow-xl py-10">
       
-      <div className='flex items-center flex-col font-mono pt-20 '>
+      <div className='flex items-center flex-col font-mono'>
         <h1 className='text-4xl mb-5 text-purple-900 font-semibold'>Sign in</h1> 
 
         <div >
@@ -56,6 +57,7 @@ const SignIn = () => {
 
       </div>
 
+      </div>
     </div>
   )
 }

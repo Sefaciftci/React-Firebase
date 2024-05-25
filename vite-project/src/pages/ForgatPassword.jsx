@@ -25,9 +25,10 @@ const ForgatPassword = () => {
 
 
   return (
-    <div className='min-h-screen bg-purple-100'>
+    <div className="min-h-screen bg-purple-100 flex justify-center items-center ">
+    <div className="bg-white w-[500px] rounded-xl shadow-xl py-10">
       
-      <div className='flex items-center flex-col font-mono pt-20 '>
+      <div className='flex items-center flex-col font-mono'>
           <h1 className='text-4xl mb-5 text-purple-900 font-semibold'>Forgot Password</h1>  
           <form onSubmit={handleSubmit} className='flex flex-col gap-5 mt-10'>
             <input 
@@ -44,6 +45,7 @@ const ForgatPassword = () => {
             <Link className='bg-purple-600 text-white p-2 rounded-xl mt-10' to='/signIn'>Sign in</Link>
       </div>
     
+    </div>
     </div>
   )
 }

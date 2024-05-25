@@ -1,7 +1,11 @@
 .App {
     text-align: center;
     margin-top: 20px;
-  }
+    width: 800px;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+   }
   
   .board {
     display: grid;

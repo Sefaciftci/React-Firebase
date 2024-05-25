@@ -5,7 +5,7 @@ import AfterQuiz from './AfterQuiz';
 import { goals1 } from './goals1';
 import { goals2 } from './goals2';
 import { FaCircleCheck } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+
 
 
 const Quiz = () => {

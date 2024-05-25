@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { FaInfoCircle } from "react-icons/fa";
+
+
 
 const Timer = ({ label, minutes, seconds, onReset }) => (
   <div>
     <h2 className="text-2xl my-8">{label}</h2>
-    <div>
-      <span className="text-4xl font-semibold">
+    <div className="bg-purple-500 px-4 py-10 text-white rounded-full text-center mb-10">
+      <span className="text-3xl font-semibold">
         {String(minutes).padStart(2, "0")}:
       </span>
-      <span className="text-4xl font-semibold">
+      <span className="text-3xl font-semibold">
         {String(seconds).padStart(2, "0")}
       </span>
     </div>
@@ -142,23 +145,28 @@ const Pomo = () => {
     localStorage.removeItem("pomodoroState");
   };
 
+  //info 
+  const handleInfocClick = () => {
+    alert('Pomodoro nedir ? ')
+  }
+
   return (
     <div className="min-h-screen bg-purple-100 flex items-center justify-center font-mono">
-      <div className="bg-white w-[700px] rounded-2xl shadow-xl p-10">
-        
-
+      <div className="bg-white w-[720px] rounded-2xl shadow-xl p-10">
         <div className="flex items-center flex-col">
-        <div className="mr-auto">
+
+        <div className="flex justify-between w-full items-center">
           <Link to="/">
-            <IoArrowBackCircle className="text-4xl text-purple-400 font-bold" />
+            <IoArrowBackCircle className="text-3xl text-purple-600 font-bold" />
           </Link>
+          <button className="text-2xl text-purple-600" onClick={handleInfocClick}><FaInfoCircle /></button>
         </div>
 
           <h1 className="text-3xl mb-10">Pomodoro Timer</h1>
           <div>
             <button
               className="bg-purple-500 py-2 px-7 rounded-xl text-white m-1"
-              onClick={() => startTimer(1, 1)}
+              onClick={() => startTimer(1, 5)}
             >
               25 min Work / 5 min Break
             </button>

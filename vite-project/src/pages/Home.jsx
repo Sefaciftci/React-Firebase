@@ -23,7 +23,6 @@ const Home = () => {
   return (
     <div >
       <div className="min-h-screen bg-purple-100">
-
         <div className="px-8 md:mx-32 py-5 md:py-8">
 
           <nav className="flex justify-between items-center color-purple-500">
@@ -34,9 +33,9 @@ const Home = () => {
               <li className="hover:border-purple-500 hover:text-purple-600  transition-all duration-500 cursor-pointer">
                 Home
               </li>
-              <Link to='/about'>
+              <Link to='/pomodoro'>
                 <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
-                  About
+                  Pomo
                 </li>
               </Link>
               

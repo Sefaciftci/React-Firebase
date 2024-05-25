@@ -17,6 +17,7 @@ import QuizApp from './pages/QuizApp/QuizApp.jsx';
 import TicTac from './pages/TicTac/TicTac.jsx';
 import About from './pages/About/About.jsx';
 import Pomo from './pages/Pomodoro/Pomo.jsx';
+import App from './pages/Quiz2/App.jsx';
 
 
 
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       {
         path:'/pomodoro',
         element:<Pomo/>,
+        errorElement: <NotFoundPage/>
+      },
+      {
+        path:'/quiz2',
+        element:<App/>,
         errorElement: <NotFoundPage/>
       }
     ]
