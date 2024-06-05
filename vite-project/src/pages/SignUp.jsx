@@ -5,11 +5,9 @@ import {auth} from '../firebase'
 import {Link} from 'react-router-dom'
 
 const SignUp = () => {
-  //email, password ve name ile kullanıcı kaydetme
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [name,setName] = useState('');
-
   const handleSubmit = useCallback((e)=> {
     e.preventDefault();
     if(!email || !password) {
@@ -22,7 +20,6 @@ const SignUp = () => {
   .catch((e)=> {
     console.log(e);
   })
-
   } , [name,email,password])
 
 

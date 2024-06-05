@@ -7,18 +7,18 @@ import { FaInfoCircle } from "react-icons/fa";
 
 
 const Timer = ({ label, minutes, seconds, onReset }) => (
-  <div>
-    <h2 className="text-2xl my-8">{label}</h2>
-    <div className="bg-purple-500 px-4 py-10 text-white rounded-full text-center mb-10">
-      <span className="text-3xl font-semibold">
+  <div className="flex flex-col  text-center font-mono">
+    <h2 className="text-xl font-semibold rounded-xl mt-12 mb-3 bg-purple-500 text-white">{label}</h2>
+    <div className="text-purple-500  rounded-full text-center mb-9">
+      <span className="text-8xl font-semibold">
         {String(minutes).padStart(2, "0")}:
       </span>
-      <span className="text-3xl font-semibold">
+      <span className="text-8xl font-semibold">
         {String(seconds).padStart(2, "0")}
       </span>
     </div>
     <button
-      className="py-3 px-5 m-5 border-none bg-purple-500 rounded-xl text-white"
+      className="py-3 px-5 m-5 border border-purple-500 rounded-xl text-purple-500 hover:bg-purple-500 hover:text-white transition-all duration-500"
       onClick={onReset}
     >
       Reset
@@ -152,26 +152,26 @@ const Pomo = () => {
 
   return (
     <div className="min-h-screen bg-purple-100 flex items-center justify-center font-mono">
-      <div className="bg-white w-[720px] rounded-2xl shadow-xl p-10">
+      <div className="bg-white w-[700px] rounded-2xl shadow-xl p-10">
         <div className="flex items-center flex-col">
 
         <div className="flex justify-between w-full items-center">
           <Link to="/">
-            <IoArrowBackCircle className="text-3xl text-purple-600 font-bold" />
+            <IoArrowBackCircle className="text-3xl text-purple-500 font-bold" />
           </Link>
-          <button className="text-2xl text-purple-600" onClick={handleInfocClick}><FaInfoCircle /></button>
+          <button className="text-2xl text-purple-500" onClick={handleInfocClick}><FaInfoCircle /></button>
         </div>
 
-          <h1 className="text-3xl mb-10">Pomodoro Timer</h1>
-          <div>
+          <h1 className="text-3xl mb-10 text-purple-500 font-bold">Pomodoro Timer</h1>
+          <div className="flex flex-row">
             <button
-              className="bg-purple-500 py-2 px-7 rounded-xl text-white m-1"
-              onClick={() => startTimer(1, 5)}
+              className="text-purple-500 border border-purple-500 hover:bg-purple-500 hover:text-white py-2 px-7 rounded-xl  m-1 transition-all duration-500"
+              onClick={() => startTimer(25, 5)}
             >
               25 min Work / 5 min Break
             </button>
             <button
-              className="bg-purple-500 py-2 px-7 rounded-xl text-white m-1"
+              className="text-purple-500 border border-purple-500 hover:bg-purple-500 hover:text-white py-2 px-7 rounded-xl  m-1 transition-all duration-500"
               onClick={() => startTimer(30, 5)}
             >
               30 min Work / 5 min Break

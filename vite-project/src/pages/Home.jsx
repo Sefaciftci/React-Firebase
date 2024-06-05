@@ -30,7 +30,7 @@ const Home = () => {
               DOPPY
             </h3>
             <ul className="flex gap-8 md:gap-20 text-lg md:text-xl text-purple-900 font-medium">
-              <li className="hover:border-purple-500 hover:text-purple-600  transition-all duration-500 cursor-pointer">
+              <li className="hover:text-purple-600  transition-all duration-500 cursor-pointer">
                 Home
               </li>
               <Link to='/pomodoro'>
@@ -39,7 +39,7 @@ const Home = () => {
                 </li>
               </Link>
               
-              <Link to='/quizApp'>
+              <Link to='/quiz2'>
                 <li className="border-purple-500 hover:text-purple-600 transition-all duration-300 cursor-pointer">
                   Quiz
                 </li>

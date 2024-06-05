@@ -13,11 +13,11 @@ import ForgatPassword from './pages/ForgatPassword.jsx';
 import MainLayout from './components/MainLayout.jsx';
 import AuthLayout from './components/AuthLayout.jsx';
 import Profile from './pages/Profile/Profile.jsx';
-import QuizApp from './pages/QuizApp/QuizApp.jsx';
 import TicTac from './pages/TicTac/TicTac.jsx';
 import About from './pages/About/About.jsx';
 import Pomo from './pages/Pomodoro/Pomo.jsx';
 import App from './pages/Quiz2/App.jsx';
+import GoalList from './pages/Quiz2/GoalList.jsx';
 
 
 
@@ -38,11 +38,6 @@ const router = createBrowserRouter([
         errorElement: <NotFoundPage/>
       },
       {
-        path:'/quizApp',
-        element:<QuizApp/>,
-        errorElement: <NotFoundPage/>
-      },
-      {
         path:'/ticTac',
         element:<TicTac/>,
         errorElement: <NotFoundPage/>
@@ -60,6 +55,11 @@ const router = createBrowserRouter([
       {
         path:'/quiz2',
         element:<App/>,
+        errorElement: <NotFoundPage/>
+      },
+      {
+        path:'/goalList',
+        element:<GoalList/>,
         errorElement: <NotFoundPage/>
       }
     ]

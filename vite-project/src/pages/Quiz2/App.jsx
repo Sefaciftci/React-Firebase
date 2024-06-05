@@ -5,6 +5,7 @@ import GoalList from './GoalList';
 function App() {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [level, setLevel] = useState(null);
+  const [resetQuiz, setResetQuiz] = useState(false); 
 
   useEffect(() => {
     const savedQuizCompleted = localStorage.getItem('quizCompleted');
@@ -24,14 +25,21 @@ function App() {
     localStorage.setItem('level', userLevel);
   };
 
+  const handleResetQuiz = () => {
+    setResetQuiz(!resetQuiz);
+    setQuizCompleted(false);
+    localStorage.removeItem('quizCompleted');
+    localStorage.removeItem('level');
+  };
+
   return (
     <div className="min-h-screen bg-purple-100 flex justify-center items-center ">
       <div className="bg-white w-[640px] rounded-xl py-6 px-9 shadow-xl">
 
       {!quizCompleted ? (
-        <Quiz onQuizComplete={handleQuizComplete} />
+        <Quiz onQuizComplete={handleQuizComplete} resetQuiz={resetQuiz}  />
       ) : (
-        <GoalList level={level} />
+        <GoalList level={level} resetQuiz={handleResetQuiz} />
       )}
 
     </div>

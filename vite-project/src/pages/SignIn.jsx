@@ -4,21 +4,17 @@ import {signInWithEmailAndPassword} from 'firebase/auth'
 import {Link} from "react-router-dom";
 
 const SignIn = () => {
-  // email ve password ile kullanıcı girişi 
   const [email, setEmail] = useState('')
   const [password , setPassword] = useState('')
 
   const handleSubmit = useCallback((e)=> {
     e.preventDefault();
-
     if(!email|| !password){
       alert('email ve password boş kalamaz')
       return;
     }
-
     signInWithEmailAndPassword(auth,email,password)
     .catch((e)=>console.log(e))
-
   }, [email,password])
 
 
