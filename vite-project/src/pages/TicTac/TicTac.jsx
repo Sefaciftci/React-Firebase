@@ -6,6 +6,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { PiHandsClappingDuotone } from "react-icons/pi";
 
 const TicTac = () => {
+  // yerel depolamada daha önce kaydedilmiş bir tahta durumu olup olmadığını kontrol eder Eğer varsa, bu veriyi kullanır. Yoksa 3x7 boyutlarında boş bir tahta oluşturur.
   const initialBoard = () => {
     const savedBoard = localStorage.getItem("board");
     return savedBoard
@@ -15,34 +16,41 @@ const TicTac = () => {
           .map(() => Array(7).fill(""));
   };
 
+  // `board` adında bir durum değişkeni oluşturuyoruz ve başlangıç değerini `initialBoard` fonksiyonundan alıyoruz.
   const [board, setBoard] = useState(initialBoard);
 
+
+  // `board` durum değişkeni her değiştiğinde yerel depolamayı güncelliyoruz.
   useEffect(() => {
     localStorage.setItem("board", JSON.stringify(board));
   }, [board]);
 
+  // Hücreye tıklama işlemi için bir fonksiyon tanımlıyoruz.
   const handleClick = (rowIndex, colIndex) => {
-    if (board[rowIndex][colIndex] === "") {
+    if (board[rowIndex][colIndex] === "") {// Hücre boşsa işlem yapıyoruz.
       const newBoard = board.map((row, rIndex) =>
         row.map((cell, cIndex) =>
           rIndex === rowIndex && cIndex === colIndex ? "X" : cell
         )
-      );
-      setBoard(newBoard);
+      );// Tıklanan hücreyi 'X' ile güncelliyoruz.
+      setBoard(newBoard); // `board` durumunu güncelliyoruz.
     }
   };
 
+  // Tahtayı sıfırlamak için bir fonksiyon tanımlıyoruz.
   const handleReset = () => {
     const newBoard = Array(3)
       .fill(null)
-      .map(() => Array(7).fill(""));
-    setBoard(newBoard);
+      .map(() => Array(7).fill("")); // Boş bir tahta oluşturuyoruz.
+    setBoard(newBoard); // `board` durumunu yeni boş tahtayla güncelliyoruz.
   };
 
-  const allCellsFilled = board.flat().every((cell) => cell === "X");
+  // Tüm hücrelerin dolu olup olmadığını kontrol eden bir değişken tanımlıyoruz.
+  const allCellsFilled = board.flat().every((cell) => cell === "X");//flat iç içe dizileri tek dizi haline getirir
 
+  // Her hücre için gün etiketi döndüren bir fonksiyon tanımlıyoruz.
   const getDayLabel = (rowIndex, colIndex) => {
-    return `Gün ${rowIndex * 7 + colIndex + 1}`;
+    return `Gün ${rowIndex * 7 + colIndex + 1}`; // Gün etiketini hesaplıyoruz.
   };
 
   //info
@@ -75,14 +83,14 @@ const TicTac = () => {
                     className={`cell ${cell}`}
                     onClick={() => handleClick(rowIndex, colIndex)}
                   >
-                    {cell === "" ? getDayLabel(rowIndex, colIndex) : cell}
+                    {cell === "" ? getDayLabel(rowIndex, colIndex) : cell}{/* Hücre boşsa gün etiketini, doluysa hücre içeriğini gösteriyoruz. */}
                   </div>
                 ))}
               </div>
             ))}
           </div>
           {allCellsFilled && <h1 className="text-center text-3xl mt-8 flex items-center justify-center tracking-wide	 text-purple-500 font-semibold ">
-            Başardın<PiHandsClappingDuotone className='ml-2'/>
+            Başardın<PiHandsClappingDuotone className='ml-2'/>{/* Tüm hücreler doluysa tebrik mesajı gösteriyoruz. */}
           </h1>}
           <button className="border border-purple-300 text-purple-500 px-5 py-2.5 mt-6 rounded-xl hover:bg-purple-400 hover:text-white transition-all duration-500" onClick={handleReset}>
             Sıfırla

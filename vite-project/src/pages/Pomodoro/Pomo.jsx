@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FaInfoCircle } from "react-icons/fa";
 
 
-
+//zamanı gösteren component
 const Timer = ({ label, minutes, seconds, onReset }) => (
   <div className="flex flex-col  text-center font-mono">
     <h2 className="text-xl font-semibold rounded-xl mt-12 mb-3 bg-purple-500 text-white">{label}</h2>
@@ -27,95 +27,52 @@ const Timer = ({ label, minutes, seconds, onReset }) => (
 );
 
 const Pomo = () => {
-  const [isRunning, setIsRunning] = useState(false);
-  const [minutes, setMinutes] = useState(25);
-  const [seconds, setSeconds] = useState(0);
-  const [workDuration, setWorkDuration] = useState(25);
-  const [breakDuration, setBreakDuration] = useState(5);
-  const [cycles, setCycles] = useState(0);
-  const [isBreak, setIsBreak] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);//zamanlayıcı çalısıyor mu ? 
+  const [minutes, setMinutes] = useState(25); // dakika değeri
+  const [seconds, setSeconds] = useState(0); //saniye değeri
+  const [workDuration, setWorkDuration] = useState(25); //çalışma süresi
+  const [breakDuration, setBreakDuration] = useState(5); //mola süresi
+  const [cycles, setCycles] = useState(0); //döngü sayısı
+  const [isBreak, setIsBreak] = useState(false); //mola mı çalışma mı ? 
 
+  //ses dosyalarım
   const workEndSound = new Audio("/afterWork.mp3");
   const breakEndSound = new Audio("/afterWork.mp3");
 
-  // Load saved state from localStorage
-  useEffect(() => {
-    const savedState = localStorage.getItem("pomodoroState");
-    if (savedState) {
-      const {
-        isRunning,
-        minutes,
-        seconds,
-        workDuration,
-        breakDuration,
-        cycles,
-        isBreak,
-      } = JSON.parse(savedState);
-      setIsRunning(isRunning);
-      setMinutes(minutes);
-      setSeconds(seconds);
-      setWorkDuration(workDuration);
-      setBreakDuration(breakDuration);
-      setCycles(cycles);
-      setIsBreak(isBreak);
-    }
-  }, []);
 
-  // Save state to localStorage whenever it changes
+  
+//useEffect  zamanlayıcıyı kontrol eder.
   useEffect(() => {
-    localStorage.setItem(
-      "pomodoroState",
-      JSON.stringify({
-        isRunning,
-        minutes,
-        seconds,
-        workDuration,
-        breakDuration,
-        cycles,
-        isBreak,
-      })
-    );
-  }, [
-    isRunning,
-    minutes,
-    seconds,
-    workDuration,
-    breakDuration,
-    cycles,
-    isBreak,
-  ]);
-
-  useEffect(() => {
-    let timer;
-    if (isRunning) {
+    let timer;//timer: Zamanlayıcıyı tutar.
+    if (isRunning) {//isRunning: Zamanlayıcının çalışıp çalışmadığını kontrol eder.if (isRunning): Zamanlayıcı çalışıyorsa, her saniye (1000 ms) bir geri sayım başlatılır.
       timer = setInterval(() => {
-        if (seconds > 0) {
+        if (seconds > 0) {//if (seconds > 0): Eğer saniye 0'dan büyükse, saniyeyi 1 azaltır.
           setSeconds(seconds - 1);
-        } else if (minutes > 0) {
+        } else if (minutes > 0) {//else if (minutes > 0): Eğer saniye 0'a ulaşmış ve dakika 0'dan büyükse, dakikayı 1 azaltır ve saniyeyi 59'a ayarlar.
           setMinutes(minutes - 1);
           setSeconds(59);
-        } else {
-          if (!isBreak) {
-            workEndSound.play();
-            setMinutes(breakDuration);
-            setSeconds(0);
-            setIsBreak(true);
-            setCycles(cycles + 1);
-          } else {
-            breakEndSound.play();
-            setMinutes(workDuration);
-            setSeconds(0);
-            setIsBreak(false);
+        } else {// Hem dakika hem de saniye 0'a ulaştığında
+          if (!isBreak) {//Çalışma süresi bitmişse
+            workEndSound.play();//Çalışma süresi bitiş sesi çalar.
+            setMinutes(breakDuration);//Mola süresini ayarlar.
+            setSeconds(0);//Saniyeyi 0'a ayarlar.
+            setIsBreak(true);//Mola süresine geçildiğini işaretler.
+            setCycles(cycles + 1);//Tamamlanan döngü sayısını artırır.
+          } else {//Mola süresi bitmişse
+            breakEndSound.play();//Mola süresi bitiş sesi çalar.
+            setMinutes(workDuration);//Çalışma süresini ayarla
+            setSeconds(0);//Saniyeyi 0'a ayarlar.
+            setIsBreak(false);//Çalışma süresine geçildiğini işaretle
           }
-          if (cycles === 3 && isBreak) {
+          if (cycles === 3 && isBreak) {//Üç döngü tamamlanmışsa ve mola süresindeyse, zamanlayıcı durdurulur.
             setIsRunning(false);
           }
         }
       }, 1000);
-    } else if (!isRunning && minutes === 0 && seconds === 0) {
+    } else if (!isRunning && minutes === 0 && seconds === 0) {//Zamanlayıcı çalışmıyorsa ve süre dolmuşsa, zamanlayıcı temizlenir.
       clearInterval(timer);
     }
-    return () => clearInterval(timer);
+    return () => clearInterval(timer);//Zamanlayıcı bileşen temizlenirken veya yeniden render edilirken temizlenir.
   }, [
     isRunning,
     minutes,
@@ -126,6 +83,7 @@ const Pomo = () => {
     breakDuration,
   ]);
 
+  //Verilen çalışma ve mola süreleriyle zamanlayıcıyı başlatır.
   const startTimer = (work, brk) => {
     setWorkDuration(work);
     setBreakDuration(brk);
@@ -136,13 +94,13 @@ const Pomo = () => {
     setCycles(0);
   };
 
+  //Zamanlayıcıyı sıfırlar.
   const resetTimer = () => {
     setIsRunning(false);
     setMinutes(workDuration);
     setSeconds(0);
     setIsBreak(false);
     setCycles(0);
-    localStorage.removeItem("pomodoroState");
   };
 
   //info 
@@ -152,7 +110,7 @@ const Pomo = () => {
 
   return (
     <div className="min-h-screen bg-purple-100 flex items-center justify-center font-mono">
-      <div className="bg-white w-[700px] rounded-2xl shadow-xl p-10">
+      <div className="bg-white w-[730px] rounded-2xl shadow-xl p-10">
         <div className="flex items-center flex-col">
 
         <div className="flex justify-between w-full items-center">

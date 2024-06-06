@@ -7,9 +7,11 @@ function Quiz({ onQuizComplete }) {
   const [showScore, setShowScore] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
 
+  //, bir cevap seçeneği tıklandığında çalışır, puanı günceller 
   const handleAnswerOptionClick = (answerScore) => {
     setScore(score + answerScore);
 
+    //sonraki soruya geçer. 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < data1.length) {
       setCurrentQuestion(nextQuestion);
@@ -18,7 +20,8 @@ function Quiz({ onQuizComplete }) {
       onQuizComplete(score + answerScore);
     }
   };
-
+  
+  //quiz'i başlatmak için kullanılır.
   const handleStartQuiz = () => {
     setQuizStarted(true);
   };

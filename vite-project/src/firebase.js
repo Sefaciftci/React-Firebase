@@ -10,5 +10,6 @@ const firebaseConfig = {
     appId: "1:50499207692:web:be1a4a67ca1c0022b1a429"
   };
   
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);// Firebase hizmetlerini başlatmak için kullanılır.
+
+export const auth = getAuth(app);//Firebase Authentication hizmetine erişmek için kullanılan değişkendir. 

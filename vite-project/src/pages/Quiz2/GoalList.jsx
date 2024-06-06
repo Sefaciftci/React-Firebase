@@ -10,20 +10,15 @@ function GoalList({ level, resetQuiz }) {
   const [goalList, setGoalList] = useState(initialGoals);
   const [completed, setCompleted] = useState(false);
 
+  
   useEffect(() => {
-    const savedGoals = localStorage.getItem("goalList");
-    if (savedGoals) {
-      setGoalList(JSON.parse(savedGoals));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("goalList", JSON.stringify(goalList));
+    //goalList durumunu güncelliyoruz.
     if (goalList.every((goal) => goal.completed)) {
       setCompleted(true);
     }
   }, [goalList]);
 
+  //handleComplete fonksiyonu, bir hedefin tamamlanma durumunu değiştirir.
   const handleComplete = (id) => {
     setGoalList(
       goalList.map((goal) => {
@@ -35,8 +30,9 @@ function GoalList({ level, resetQuiz }) {
     );
   };
 
+  //hedef listesini sıfırlar ve resetQuiz fonksiyonunu çağırarak quiz'i sıfırlar.
   const handleResetQuiz = () => {
-    resetQuiz(); // Reset quiz function
+    resetQuiz(); 
   };
 
   const handleReset = () => {

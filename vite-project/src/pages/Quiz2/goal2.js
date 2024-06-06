@@ -38,11 +38,6 @@ const goal2 = [
       id: 7,
       goalText: 'Sosyal medya gönderisi paylaşmak yerine günlük yaz',
       goalScore: 250
-  },
-  {
-      id: 8,
-      goalText: 'Haftada en az bir gün tamamen sosyal medya detoksu yap',
-      goalScore: 300
   }
     ];
     

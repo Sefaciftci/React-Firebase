@@ -80,7 +80,7 @@ const data1 = [
           { answerText: 'Hiç', answerScore: 0 },
           { answerText: 'Haftada birkaç kez', answerScore: 100 },
           { answerText: 'Her gün birkaç kez', answerScore: 200 },
-          { answerText: 'Günde birkaç kez veya daha fazla', answerScore: 400 }
+          { answerText: 'Günde birkaç kez veya daha fazla', answerScore: 300 }
       ]
   },
   {
@@ -89,7 +89,7 @@ const data1 = [
           { answerText: 'Hiç etkilemiyor', answerScore: 0 },
           { answerText: 'Nadiren etkiliyor', answerScore: 100 },
           { answerText: 'Sık sık etkiliyor', answerScore: 200 },
-          { answerText: 'Çok etkiliyor, beni mutlu veya üzgün edebiliyor', answerScore: 400 }
+          { answerText: 'Çok etkiliyor, beni mutlu veya üzgün edebiliyor', answerScore: 300 }
       ]
   },
   {
@@ -98,7 +98,7 @@ const data1 = [
           { answerText: 'Hayır, kontrol edebiliyorum', answerScore: 0 },
           { answerText: 'Nadiren, bazen kontrol edemiyorum', answerScore: 100 },
           { answerText: 'Evet, sık sık kontrol edemiyorum', answerScore: 200 },
-          { answerText: 'Kesinlikle, kontrol edemiyorum ve buna karşı koymakta zorlanıyorum', answerScore: 400 }
+          { answerText: 'Kesinlikle, kontrol edemiyorum ve buna karşı koymakta zorlanıyorum', answerScore: 300 }
       ]
   },
   {

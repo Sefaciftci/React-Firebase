@@ -8,6 +8,7 @@ function App() {
   const [resetQuiz, setResetQuiz] = useState(false); 
 
   useEffect(() => {
+    //yerel depolamadan quizCompleted ve level bilgilerini alıyoruz.
     const savedQuizCompleted = localStorage.getItem('quizCompleted');
     const savedLevel = localStorage.getItem('level');
 
@@ -17,6 +18,7 @@ function App() {
     }
   }, []);
 
+  //quiz tamamlandığında çağrılır ve kullanıcının puanına göre seviyesini belirler ve bu bilgileri yerel depolamaya kaydeder.
   const handleQuizComplete = (score) => {
     const userLevel = score > 2000 ? 'level2' : 'level1';
     setLevel(userLevel);
@@ -25,6 +27,8 @@ function App() {
     localStorage.setItem('level', userLevel);
   };
 
+
+  //quiz'i sıfırlar ve yerel depolamayı günceller.
   const handleResetQuiz = () => {
     setResetQuiz(!resetQuiz);
     setQuizCompleted(false);
